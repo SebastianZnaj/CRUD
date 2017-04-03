@@ -1,0 +1,25 @@
+/*center list */
+body {
+    font-family: "Lato", serif;
+    background-color: darkgray;
+    color: greenyellow;
+    text-align: center;
+}
+
+#outer {
+    width: 100%;
+}
+
+#inner {
+    background-color: gray;
+    width:50%;
+    margin: auto;
+}
+
+/*organise list*/
+table td {
+    table-layout:fixed;
+    width:120px;
+    overflow: hidden;
+    word-wrap:break-word;
+}
