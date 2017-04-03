@@ -1,3 +1,6 @@
+import sqlite3
+
+
 class ItemList:
 
     def __init__(self, name, description, price):
@@ -6,10 +9,21 @@ class ItemList:
         self.description = description
         self.price = price
 
-    def get_all(self):
-        pass
+    @classmethod
+    def get_all(cls):
+        con = sqlite3.connect("items.db")
+        cur = con.cursor()
+        cur.execute("SELECT * FROM items")
+        items_list = []
+        for row in cur:
+            item = ItemList(row[1], row[2], row[3])
+            items_list.append(item)
+        con.commit()
+        cur.close()
+        return items_list
 
-    def get_by_id(self):
+    @classmethod
+    def get_by_id(cls):
         pass
 
     def add(self):

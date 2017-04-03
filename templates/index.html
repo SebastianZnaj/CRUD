@@ -6,6 +6,21 @@
     <link rel="stylesheet" type="text/css" href="../static/style.css"/>
 </head>
 <body>
+<div id="outer">
+    <div id="inner">
+        {% for item in items %}
+            <table class="fixed">
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.description }}</td>
+                    {# <td><a href="{{ url_for("remove", todo_id= item.id) }}">Remove</a></td> #}
+                    {# <td><a href="{{ url_for("edit", todo_id= item.id) }}">Edit</a></td> #}
+                </tr>
+            </table>
+        {% endfor %}
+    </div>
+    {# <a href="{{ url_for("add") }}">Add</a> #}
+</div>
 
 
 </body>
