@@ -33,8 +33,14 @@ class ItemList:
         return items_list
 
     @classmethod
-    def get_by_id(cls):
-        pass
+    def get_by_id(cls, id):
+        con = sqlite3.connect("items.db")
+        cur = con.cursor()
+        cur.execute("SELECT * FROM items WHERE id=?", (id,))
+        for row in cur:
+            return ItemList(row[0], row[1], row[2], row[3])
+        con.commit()
+        con.close()
 
     def save(self):
         con = sqlite3.connect("items.db")
@@ -44,7 +50,11 @@ class ItemList:
         con.close()
 
     def delete(self):
-        pass
+        con = sqlite3.connect("items.db")
+        cur = con.cursor()
+        cur.execute("DELETE FROM items WHERE id=?", (self.id,))
+        con.commit()
+        con.close()
 
     def update(self):
         con = sqlite3.connect("items.db")

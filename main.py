@@ -25,6 +25,14 @@ def add():
         return redirect(url_for("list"))
 
 
+@app.route("/remove/<item_id>")
+def remove(item_id):
+    """ Removes todo item with selected id from the database """
+    item_to_remove = ItemList.get_by_id(item_id)
+    item_to_remove.delete()
+    return redirect(url_for("list"))
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)

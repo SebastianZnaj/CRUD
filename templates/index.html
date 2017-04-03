@@ -24,11 +24,9 @@
                 <td>{{ item.name }}</td>
                 <td>{{ item.description }}</td>
                 <td>{{ item.price }}</td>
+                <td><a href="{{ url_for('remove', item_id= item.id) }}">Remove</a></td>
                 {#
-                <td><a href="{{ url_for('remove', todo_id= item.id) }}">Remove</a></td>
-                #}
-                {#
-                <td><a href="{{ url_for('edit', todo_id= item.id) }}">Edit</a></td>
+                <td><a href="{{ url_for('edit', item_id= item.id) }}">Edit</a></td>
                 #}
             </tr>
             </tbody>
