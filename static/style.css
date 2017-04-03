@@ -23,3 +23,8 @@ table td {
     overflow: hidden;
     word-wrap:break-word;
 }
+tbody td {
+    border-top: 3px solid greenyellow;
+    border-collapse:separate;
+    border-spacing:5px 5px;
+}
