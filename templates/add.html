@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add item</title>
+</head>
+<body>
+<form action="{{ url_for('add') }}" method="POST">
+    <p><input type="text" name="name" placeholder="Enter name"></p>
+    <p><input type="text" name="description" placeholder="Enter description"></p>
+    <p><input type="text" name="price" placeholder="Enter price"></p>
+    <button type="submit" formaction="{{ url_for('add') }}">ADD</button>
+</form>
+</body>
+</html>
