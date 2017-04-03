@@ -33,6 +33,22 @@ def remove(item_id):
     return redirect(url_for("list"))
 
 
+@app.route("/edit/<item_id>", methods=['GET', 'POST'])
+def edit(item_id):
+    """ Edits todo item with selected id in the database
+    If the method was GET it should show todo item form.
+    If the method was POST it shold update todo item in database.
+    """
+    item = ItemList.get_by_id(item_id)
+    if request.method == "GET":
+        return render_template("edit.html", item=item)
+    else:
+        name = request.form["name"]
+        description = request.form["description"]
+        price = request.form["price"]
+        item_edit = ItemList(item_id, name, description, price)
+        item_edit.update()
+        return redirect(url_for("list"))
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -59,7 +59,7 @@ class ItemList:
     def update(self):
         con = sqlite3.connect("items.db")
         cur = con.cursor()
-        cur.execute("UPDATE items SET items (id, name, description, price) VALUES (?, ?, ?, ?)", (self.id, self.name, self.description, self.price))
+        cur.execute("UPDATE items SET name = ?, description = ?, price = ? WHERE id = ?", ( self.name, self.description, self.price, self.id))
         con.commit()
         con.close()
 
